@@ -44,9 +44,9 @@ func SearchProduct(c *gin.Context) {
 			c.String(http.StatusInternalServerError, err.Error())
 		} else {
 			if products != nil {
-				c.String(http.StatusNotFound, "Not Found")
-			} else {
 				c.JSON(http.StatusOK, products)
+			} else {
+				c.String(http.StatusNotFound, "Not Found")
 			}
 		}
 	}

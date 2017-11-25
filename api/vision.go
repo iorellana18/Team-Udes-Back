@@ -6,12 +6,12 @@ import (
 	"github.com/kaneshin/pigeon"
 	"github.com/kaneshin/pigeon/credentials"
 
-	"encoding/json"
 	"github.com/iorellana18/Team-Udes-Back/models"
 	"github.com/iorellana18/Team-Udes-Back/search"
+
+	"encoding/json"
 	"io"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"os"
 )
