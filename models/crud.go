@@ -5,6 +5,7 @@ import (
 )
 
 func Setup(app *gin.Engine) {
+	ProductCRUD(app)
 	UserCRUD(app)
 	UserTypeCRUD(app)
 }

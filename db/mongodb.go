@@ -2,34 +2,21 @@ package db
 
 import (
 	"gopkg.in/mgo.v2"
-
-	"github.com/citiaps/aysana-backend/utils"
+	"github.com/iorellana18/Team-Udes-Back/utils"
 )
 
 var (
 	mongoHost     string
 	mongoDatabase string
-	mongoUsername string
-	mongoPass string
 )
 
 func MongoSetup() {
 	mongoHost = utils.Config.MongoDB.Host
-	mongoDatabase = utils.Config.MongoDB.Db
-	mongoUsername = utils.Config.MongoDB.Username
-	mongoPass = utils.Config.MongoDB.Pass
+	mongoDatabase = utils.Config.MongoDB.Database
 }
 
 func MongoSession() *mgo.Session {
-	info := &mgo.DialInfo{
-		Addrs:    []string{mongoHost},
-
-		Database: mongoDatabase,
-		Username: mongoUsername,
-		Password: mongoPass,
-	}
-
-	session, err := mgo.DialWithInfo(info)
+	session, err := mgo.Dial(mongoHost)
 	utils.Check(err)
 	return session
 }

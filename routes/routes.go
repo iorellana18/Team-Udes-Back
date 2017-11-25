@@ -2,7 +2,9 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/iorellana18/Team-Udes-Back/api"
 	"github.com/iorellana18/Team-Udes-Back/auth"
+	"github.com/iorellana18/Team-Udes-Back/search"
 )
 
 func Setup(app *gin.Engine) {
@@ -16,4 +18,13 @@ func Setup(app *gin.Engine) {
 	{
 		authorization.GET("/refresh_token", authMiddleware.RefreshHandler)
 	}
+
+	img := app.Group("/img")
+	img.Use(auth.AddPermission(auth.User))
+	img.Use(authMiddleware.MiddlewareFunc())
+	{
+		img.POST("/analyze/", api.AnalyzeImagen)
+	}
+
+	app.GET("/search", search.SearchProduct)
 }

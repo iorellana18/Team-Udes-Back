@@ -10,6 +10,11 @@ var (
 	Config Configuration
 )
 
+type MongoDB struct {
+	Host     string `yaml:"host"`
+	Database string `yaml:"db"`
+}
+
 type Postgres struct {
 	Rdbms   string `yaml:"rdbms"`
 	User    string `yaml:"user"`
@@ -21,11 +26,11 @@ type Postgres struct {
 }
 
 type Elastic struct {
-	Host     string `yaml:"host"`
-	Port     string `yaml:"port"`
-	Name     string `yaml:"name"`
-	Index    string `yaml:"index"`
-	Type     string `yaml:"type"`
+	Host  string `yaml:"host"`
+	Port  string `yaml:"port"`
+	Name  string `yaml:"name"`
+	Index string `yaml:"index"`
+	Type  string `yaml:"type"`
 }
 
 type Server struct {
@@ -33,9 +38,10 @@ type Server struct {
 }
 
 type Configuration struct {
+	MongoDB  MongoDB  `yaml:"mongodb"`
 	Postgres Postgres `yaml:"postgres"`
-	Elastic Elastic `yaml:"elastic"`
-	Server  Server  `yaml:"server"`
+	Elastic  Elastic  `yaml:"elastic"`
+	Server   Server   `yaml:"server"`
 }
 
 func LoadConfig(filename string) {

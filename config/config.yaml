@@ -1,3 +1,8 @@
+# Configuration for MongoDB
+mongodb:
+  host: localhost
+  db: ehackathon
+
 # Configuration for Database
 postgres:  
   rdbms: postgres
@@ -10,11 +15,11 @@ postgres:
   
 # Configuration for ElasticSearch
 elastic:
-  host: elastic.citiaps.usach.cl
+  host: localhost
   port: 9200
   name: ehackathon
-  index: aysana
-  type: tweet
+  index: falabella
+  type: products
  
 # Server
 server:

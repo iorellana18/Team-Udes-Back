@@ -1,6 +1,13 @@
 hash: f71b54d43314eb02e0f466e46e727ebeda421b9a2918bf2d3048515776fc8c50
-updated: 2017-11-25T00:04:47.697111475-03:00
+updated: 2017-11-25T05:18:39.856089772-03:00
 imports:
+- name: cloud.google.com/go
+  version: 290422ce3a4bcdb0c7998c2a994e23bc950b0bdb
+  subpackages:
+  - compute/metadata
+  - internal/version
+  - translate
+  - translate/internal/translate/v2
 - name: github.com/citiaps/aysana-backend
   version: 63dfc52d91444bf18d610f8ebe5ba04f685ee90e
   subpackages:
@@ -18,10 +25,18 @@ imports:
   version: 1e59b77b52bf8e4b449a57e6f79f21226d571845
   subpackages:
   - proto
+  - ptypes
+  - ptypes/any
+  - ptypes/duration
+  - ptypes/timestamp
 - name: github.com/jinzhu/gorm
   version: 5174cc5c242a728b435ea2be8a2f7f998e15429b
 - name: github.com/jinzhu/inflection
   version: 1c35d901db3da928c72a72d8458480cc9ade058f
+- name: github.com/kaneshin/pigeon
+  version: d7664b8a7da76bc93fe315bf41fe8f9f79a8a08b
+  subpackages:
+  - credentials
 - name: github.com/lib/pq
   version: 8c6ee72f3e6bcb1542298dd5f76cb74af9742cec
   subpackages:
@@ -46,10 +61,82 @@ imports:
   subpackages:
   - context
   - context/ctxhttp
+  - http2
+  - http2/hpack
+  - idna
+  - internal/timeseries
+  - lex/httplex
+  - trace
+- name: golang.org/x/oauth2
+  version: f95fa95eaa936d9d87489b15d1d18b97c1ba9c28
+  subpackages:
+  - google
+  - internal
+  - jws
+  - jwt
 - name: golang.org/x/sys
   version: 4ff8c001ce4cc464e644b922325097228fce14d8
   subpackages:
   - unix
+- name: golang.org/x/text
+  version: 88f656faf3f37f690df1a32515b479415e1a6769
+  subpackages:
+  - internal/tag
+  - language
+  - secure/bidirule
+  - transform
+  - unicode/bidi
+  - unicode/norm
+- name: google.golang.org/api
+  version: b804618854e387dc7fdd9e50496183ddcbb4b120
+  subpackages:
+  - gensupport
+  - googleapi
+  - googleapi/internal/uritemplates
+  - googleapi/transport
+  - internal
+  - option
+  - transport/http
+  - vision/v1
+- name: google.golang.org/appengine
+  version: 9d8544a6b2c7df9cff240fcf92d7b2f59bc13416
+  subpackages:
+  - internal
+  - internal/app_identity
+  - internal/base
+  - internal/datastore
+  - internal/log
+  - internal/modules
+  - internal/remote_api
+  - internal/urlfetch
+  - urlfetch
+- name: google.golang.org/genproto
+  version: 7f0da29060c682909f650ad8ed4e515bd74fa12a
+  subpackages:
+  - googleapis/rpc/status
+- name: google.golang.org/grpc
+  version: 10873b30bf245efc365a957b425da2e15f47a560
+  subpackages:
+  - balancer
+  - balancer/roundrobin
+  - codes
+  - connectivity
+  - credentials
+  - encoding
+  - grpclb/grpc_lb_v1/messages
+  - grpclog
+  - internal
+  - keepalive
+  - metadata
+  - naming
+  - peer
+  - resolver
+  - resolver/dns
+  - resolver/passthrough
+  - stats
+  - status
+  - tap
+  - transport
 - name: googlemaps.github.io/maps
   version: 35da55b7ef7abd788b772cd2d33b1727b384b81c
   subpackages:

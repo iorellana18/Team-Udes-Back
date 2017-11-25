@@ -10,11 +10,11 @@ import (
 )
 
 var (
-	hostElastic     string
-	portElastic     string
-	name     string
-	index    string
-	typeData string
+	hostElastic string
+	portElastic string
+	name        string
+	index       string
+	typeData    string
 )
 
 func ElasticSetup() {
@@ -30,7 +30,7 @@ func createIndex(ctx context.Context, client *elastic.Client) {
 	utils.Check(err)
 
 	if !exists {
-		body := "{\"mappings\": {\"" + index + "\": {\"properties\": {\"Texto\": {\"type\":     \"text\", \"fielddata\": true }}}}}"
+		body := "{\"mappings\": {\"" + index + "\": {\"properties\": {\"Title\": {\"type\":     \"text\", \"fielddata\": true }}}}}"
 		createIndex, err := client.CreateIndex(index).Body(body).Do(ctx)
 		utils.Check(err)
 		if !createIndex.Acknowledged {
@@ -51,9 +51,7 @@ func ElasticInit() (context.Context, *elastic.Client) {
 }
 
 func ElasticIndex(ctx context.Context, client *elastic.Client, data interface{}) *elastic.IndexResponse {
-	put, err := client.Index().
-		Index(index).
-		Type(typeData).
+	put, err := client.Index().Index(index).Type(typeData).
 		BodyJson(data).
 		Do(ctx)
 	utils.Check(err)
