@@ -1,0 +1,52 @@
+hash: 52accfe7d2fe12471c9576023ed9ec3b99a710843783d049c0b890fa89ae646b
+updated: 2017-10-12T13:33:26.088041954-03:00
+imports:
+- name: github.com/citiaps/aysana-backend
+  version: 348f03d4a11dfb9cb5b883c6951ef42464cd0296
+  subpackages:
+  - db
+  - models
+  - routes
+  - utils
+- name: github.com/gin-contrib/cors
+  version: cf4846e6a636a76237a28d9286f163c132e841bc
+- name: github.com/gin-contrib/sse
+  version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
+- name: github.com/gin-gonic/gin
+  version: d459835d2b077e44f7c9b453505ee29881d5d12d
+  subpackages:
+  - binding
+  - render
+- name: github.com/golang/protobuf
+  version: 130e6b02ab059e7b717a096f397c5b60111cae74
+  subpackages:
+  - proto
+- name: github.com/mattn/go-isatty
+  version: a5cdd64afdee435007ee3e9f6ed4684af949d568
+- name: github.com/pkg/errors
+  version: 2b3a18b5f0fb6b4f9190549597d3f962c02bc5eb
+- name: github.com/ugorji/go
+  version: 50530d8d1478c8bbfbdb18cbf5465db9aee6ada4
+  subpackages:
+  - codec
+- name: golang.org/x/sys
+  version: ebfc5b4631820b793c9010c87fd8fef0f39eb082
+  subpackages:
+  - unix
+- name: gopkg.in/go-playground/validator.v8
+  version: 5f1438d3fca68893a817e4a66806cea46a9e4ebf
+- name: gopkg.in/mgo.v2
+  version: 3f83fa5005286a7fe593b055f0d7771a7dce4655
+  subpackages:
+  - bson
+  - internal/json
+  - internal/sasl
+  - internal/scram
+- name: gopkg.in/olivere/elastic.v5
+  version: 2a08d39723b7f4df92b96e2dff891a60952714d6
+  subpackages:
+  - config
+  - uritemplates
+- name: gopkg.in/yaml.v2
+  version: eb3733d160e74a9c7e442f435eb3bea458e1d19f
+testImports: []

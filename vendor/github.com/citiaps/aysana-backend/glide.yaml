@@ -1,0 +1,12 @@
+package: github.com/citiaps/aysana-backend
+import:
+- package: github.com/gin-contrib/cors
+  version: ~1.2.0
+- package: github.com/gin-gonic/gin
+  version: ~1.2.0
+- package: gopkg.in/mgo.v2
+  subpackages:
+  - bson
+- package: gopkg.in/olivere/elastic.v5
+  version: ~5.0.48
+- package: gopkg.in/yaml.v2

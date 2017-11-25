@@ -1,0 +1,25 @@
+package: github.com/iorellana18/Team-Udes-Back
+import:
+- package: github.com/NaySoftware/go-fcm
+- package: github.com/citiaps/aysana-backend
+  subpackages:
+  - utils
+- package: github.com/gin-contrib/cors
+  version: ~1.2.0
+- package: github.com/gin-gonic/gin
+  version: ~1.2.0
+- package: github.com/jinzhu/gorm
+  version: ~1.0.0
+- package: github.com/lib/pq
+- package: golang.org/x/net
+  subpackages:
+  - context
+- package: googlemaps.github.io/maps
+- package: gopkg.in/appleboy/gin-jwt.v2
+  version: ~2.3.1
+- package: gopkg.in/mgo.v2
+  subpackages:
+  - bson
+- package: gopkg.in/olivere/elastic.v5
+  version: ~6.0.0-rc2
+- package: gopkg.in/yaml.v2

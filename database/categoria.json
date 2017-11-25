@@ -1,0 +1,6 @@
+{"_id":{"$oid":"597f821b4c20e5aa0bdd9901"},"id":0,"nombre":"Gente Afectada"}
+{"_id":{"$oid":"597f82344c20e5aa0bdd9902"},"id":1,"nombre":"Infraestructura y Servicios"}
+{"_id":{"$oid":"597f823e4c20e5aa0bdd9903"},"id":2,"nombre":"Donación y Voluntariado"}
+{"_id":{"$oid":"597f82494c20e5aa0bdd9904"},"id":3,"nombre":"Precaución y Consejos"}
+{"_id":{"$oid":"597f82544c20e5aa0bdd9905"},"id":4,"nombre":"Apoyo Emocional y Simpatía"}
+{"_id":{"$oid":"597f825f4c20e5aa0bdd9906"},"id":5,"nombre":"Otra Info Útil"}

@@ -1,0 +1,20 @@
+# Configuration for MongoDB
+mongodb:  
+  host: mongodb.citiaps.usach.cl
+  db: aysana
+  username: aysana
+  pass: ays4n4.123
+  
+# Configuration for ElasticSearch
+elastic:
+  host: elastic.citiaps.usach.cl
+  port: 9200
+  username: elastic
+  pass: elastic!2017
+  name: node-citiaps
+  index: aysana
+  type: tweet
+ 
+# Server
+server:
+  port: 3000

@@ -1,0 +1,21 @@
+# Configuration for Database
+postgres:  
+  rdbms: postgres
+  user: ehackathon
+  pass: 12345
+  ip: localhost
+  port: 5432
+  name: ehackathon
+  sslmode: disable
+  
+# Configuration for ElasticSearch
+elastic:
+  host: elastic.citiaps.usach.cl
+  port: 9200
+  name: ehackathon
+  index: aysana
+  type: tweet
+ 
+# Server
+server:
+  port: 3000
