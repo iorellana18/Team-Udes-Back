@@ -64,7 +64,6 @@ func AnalyzeImagen(c *gin.Context) {
 									if text, err := translateText(label.Description); err != nil {
 										c.String(http.StatusInternalServerError, err.Error())
 									} else {
-										log.Println("[Google Cloud Vision] Texto a buscar: " + text)
 										if productsRes, err := search.QueryIndex(c, text, 0); err != nil {
 											c.String(http.StatusInternalServerError, err.Error())
 										} else {
