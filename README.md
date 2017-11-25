@@ -1,5 +1,5 @@
-# Aysana Backend
-API REST implementada en Golang de la aplicación Aysana
+# E-Hackaton Backend
+API REST implementada en Golang de la aplicación E-Hackaton
 
 ## Estructura de los directorios
 - `auth/`: Autentificación para el ingreso a la API REST.
