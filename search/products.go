@@ -10,10 +10,13 @@ import (
 	"net/http"
 	"reflect"
 	"strconv"
+	"strings"
 )
 
 func QueryIndex(c *gin.Context, query string, paginacion int) ([]models.ProductIndex, error) {
 	ctx, client := db.ElasticInit()
+
+	query = strings.ToLower(query)
 
 	categoriaQuery := elastic.NewTermQuery("title", query)
 	if searchResult, err := client.Search().Index(db.GetIndex()).Query(categoriaQuery).From(10 * paginacion).Size(10).Do(ctx); err != nil {
