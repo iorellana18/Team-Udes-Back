@@ -10,6 +10,7 @@ import (
 	"github.com/iorellana18/Team-Udes-Back/search"
 
 	"encoding/json"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"

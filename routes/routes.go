@@ -10,7 +10,7 @@ import (
 func Setup(app *gin.Engine) {
 	authMiddleware := auth.CreateMiddleware()
 
-	app.POST("/login", authMiddleware.LoginHandler)
+	app.POST("/login/", authMiddleware.LoginHandler)
 
 	authorization := app.Group("/auth")
 	authorization.Use(auth.AddPermission(auth.Admin, auth.User))
@@ -20,8 +20,6 @@ func Setup(app *gin.Engine) {
 	}
 
 	img := app.Group("/img")
-	img.Use(auth.AddPermission(auth.User))
-	img.Use(authMiddleware.MiddlewareFunc())
 	{
 		img.POST("/analyze/", api.AnalyzeImagen)
 	}
