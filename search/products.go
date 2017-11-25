@@ -12,6 +12,27 @@ import (
 	"strconv"
 )
 
+func QueryIndex(c *gin.Context, query string, paginacion int) ([]models.ProductIndex, error) {
+	ctx, client := db.ElasticInit()
+
+	categoriaQuery := elastic.NewTermQuery("title", query)
+	if searchResult, err := client.Search().Index(db.GetIndex()).Query(categoriaQuery).From(10 * paginacion).Size(10).Do(ctx); err != nil {
+		return nil, err
+	} else {
+		products := make([]models.ProductIndex, len(searchResult.Hits.Hits))
+		for i, item := range searchResult.Each(reflect.TypeOf(models.ProductIndex{})) {
+			productsRes := item.(models.ProductIndex)
+			products[i] = productsRes
+		}
+
+		if len(searchResult.Hits.Hits) > 0 {
+			return products, nil
+		} else {
+			return nil, nil
+		}
+	}
+}
+
 func SearchProduct(c *gin.Context) {
 	query := c.Query("q")
 
@@ -19,23 +40,13 @@ func SearchProduct(c *gin.Context) {
 	if paginacion, err := strconv.Atoi(scroll); err != nil {
 		c.String(http.StatusInternalServerError, err.Error())
 	} else {
-		ctx, client := db.ElasticInit()
-
-		categoriaQuery := elastic.NewTermQuery("title", query)
-		if searchResult, errSearch := client.Search().
-			Index(db.GetIndex()).Query(categoriaQuery).From(10 * paginacion).Size(10).Do(ctx); err != nil {
-			c.String(http.StatusInternalServerError, errSearch.Error())
+		if products, err := QueryIndex(c, query, paginacion); err != nil {
+			c.String(http.StatusInternalServerError, err.Error())
 		} else {
-			tweets := make([]models.ProductIndex, len(searchResult.Hits.Hits))
-			for i, item := range searchResult.Each(reflect.TypeOf(models.ProductIndex{})) {
-				tweetRes := item.(models.ProductIndex)
-				tweets[i] = tweetRes
-			}
-
-			if len(searchResult.Hits.Hits) > 0 {
-				c.JSON(http.StatusOK, tweets)
-			} else {
+			if products != nil {
 				c.String(http.StatusNotFound, "Not Found")
+			} else {
+				c.JSON(http.StatusOK, products)
 			}
 		}
 	}

@@ -7,9 +7,11 @@ import (
 	"github.com/kaneshin/pigeon/credentials"
 
 	"encoding/json"
-	"fmt"
+	"github.com/iorellana18/Team-Udes-Back/models"
+	"github.com/iorellana18/Team-Udes-Back/search"
 	"io"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 )
@@ -56,15 +58,22 @@ func AnalyzeImagen(c *gin.Context) {
 						if err := json.Unmarshal(body, &imagens); err != nil {
 							c.String(http.StatusInternalServerError, err.Error())
 						} else {
+							var products []models.ProductIndex
 							for _, imagen := range imagens {
 								for _, label := range imagen.LabelAnnotations {
 									if text, err := translateText(label.Description); err != nil {
 										c.String(http.StatusInternalServerError, err.Error())
 									} else {
-										fmt.Println(text)
+										log.Println("[Google Cloud Vision] Texto a buscar: " + text)
+										if productsRes, err := search.QueryIndex(c, text, 0); err != nil {
+											c.String(http.StatusInternalServerError, err.Error())
+										} else {
+											products = append(products, productsRes...)
+										}
 									}
 								}
 							}
+							c.JSON(http.StatusOK, products)
 						}
 					}
 				}
