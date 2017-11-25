@@ -31,7 +31,7 @@ type ProductIndex struct {
 
 type Product struct {
 	Id           bson.ObjectId `json:"id" bson:"_id"`
-	ProductID    string        `json:"productId"`
+	ProductID    string        `json:"productId" bson:"productId"`
 	URL          string        `json:"url"`
 	Brand        string        `json:"brand"`
 	Title        string        `json:"title"`
@@ -94,6 +94,7 @@ func ProductFetchOne(c *gin.Context) {
 	if err := collection.Find(bson.M{}).Skip(num).One(&product); err != nil {
 		c.String(http.StatusNotFound, err.Error())
 	} else {
+		fmt.Println(product)
 		c.JSON(http.StatusOK, product)
 	}
 }
